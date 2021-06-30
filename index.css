@@ -1,0 +1,115 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(145, 188, 190);
+}
+
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.score-box {
+    display: flex;
+    font-size: 42px;
+    font-weight: bold;
+    padding: 16px;
+}
+
+.turn-box {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 16px;
+}
+
+#turn {
+    font-size: 36px;
+    color: rgb(190, 255, 233);
+    padding: 4px;
+}
+
+.table {
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: solid 1px #333;
+}
+
+.item {
+    width: 100%;
+    height: 100%;
+    border: solid 1px #333;
+}
+
+.O {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ffff88;
+}
+
+.O:before {
+    border: 20px solid gray;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    box-sizing: border-box;
+
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    content: '';
+}
+
+.X {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #88ffff;
+}
+
+.X:before {
+    border-radius: 3px;
+    height: 20px;
+    width: 200px;
+
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    content: '';
+    background: gray;
+    transform: rotate(45deg);
+}
+
+.X:after {
+    border-radius: 3px;
+    height: 20px;
+    width: 200px;
+
+    position: absolute;
+    top: 90px;
+    right: 0px;
+    content: '';
+    background: gray;
+    transform: rotate(-45deg);
+}
+
+.button-box {
+    display: flex;
+    padding: 16px
+}
+
+.button {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 16px;
+    background-color: rgb(190, 255, 233);
+    border-radius: 8px;
+    border: solid 1px #333;
+    margin: 8px;
+    cursor: pointer;
+}
