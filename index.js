@@ -1,15 +1,16 @@
-let isOturn = false
 const winComb = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8],
     [0, 3, 6], [1, 4, 7], [2, 5, 8],
     [0, 4, 8], [2, 4, 6]
 ]
+let isOturn = false
 let Oscore = 0
 let Xscore = 0
 let cnt = 0
 
-// 게임 init(restart 아님)
-const initGame = () => {
+// 게임 init (점수 초기화 아님)
+const initGame = (isOturn) => {
+    updateTurn(isOturn === true)
     cnt = 0
     items.forEach(e => {
         e.classList.remove('X')
@@ -21,6 +22,12 @@ const initGame = () => {
 const updateScore = () => {
     scoreO.innerHTML = Oscore
     scoreX.innerHTML = Xscore
+}
+
+// html에 차례 업데이트
+const updateTurn = (isOturn) => {
+    console.log(isOturn)
+    turn.innerHTML = isOturn ? 'O' : 'X'
 }
 
 // new game, reset game 구현
@@ -103,17 +110,16 @@ const clickFunction = (e) => {
                 updateScore()
             }
 
-            initGame()
+            // 진 사람이 먼저 시작하기
+            isOturn = winner === 'O' ? false : true
+            initGame(isOturn)
         }, 0)
         return
     }
 
-    // 순서 바꾸기
+    // 순서 바꾸고 화면에 그리기
     isOturn = !isOturn
-
-    // 순서 화면에 그리기
-    let turn = document.getElementById('turn')
-    turn.innerHTML = isOturn ? 'O' : 'X'
+    updateTurn(isOturn)
 }
 
 
@@ -122,6 +128,11 @@ const items = document.querySelectorAll('.item')
 let scoreX = document.getElementById('scoreX')
 let scoreO = document.getElementById('scoreO')
 updateScore()
+
+let turn = document.getElementById('turn')
+updateTurn(isOturn)
+
 initButtons()
+
 
 items.forEach(e => e.addEventListener('click', () => clickFunction(e)))

@@ -52,6 +52,5 @@
 ## 개선사항
 
 * 전역변수 사용 하지 말고 인자로 받아서 처리하기
-* init에서 진 사람이 먼저 시작하게 턴 바꿔보기
-* new game, reset game alert 넣기
+* setTimeout 해도 css mark 되기 전에 게임이 init되는 버그 있음
 
