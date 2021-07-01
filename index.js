@@ -1,14 +1,14 @@
-let isOTurn
+let isOturn = false
 const winComb = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8],
     [0, 3, 6], [1, 4, 7], [2, 5, 8],
     [0, 4, 8], [2, 4, 6]
 ]
-let Oscore
-let Xscore
-let cnt
+let Oscore = 0
+let Xscore = 0
+let cnt = 0
 
-// 게임 init
+// 게임 init(restart 아님)
 const initGame = () => {
     cnt = 0
     items.forEach(e => {
@@ -17,31 +17,40 @@ const initGame = () => {
     })
 }
 
+// html에 점수 업데이트
 const updateScore = () => {
     scoreO.innerHTML = Oscore
     scoreX.innerHTML = Xscore
 }
 
-const items = document.querySelectorAll('.item')
-console.log(items)
+// new game, reset game 구현
+const initButtons = () => {
+    let newGame = document.getElementById('newGame')
+    let resetGame = document.getElementById('resetGame')
 
+    newGame.addEventListener("click", () => {
+        console.log('new game')
+        initGame()
+    })
 
-let scoreX = document.getElementById('scoreX')
-let scoreO = document.getElementById('scoreO')
-Oscore = 0
-Xscore = 0
-updateScore()
-isOTurn = false
-initGame()
+    resetGame.addEventListener("click", () => {
+        console.log('reset game')
+        Xscore = 0
+        Oscore = 0
+        updateScore()
+        initGame()
+    })
+}
 
-items.forEach(e => e.addEventListener('click', () => {
+// cell item 클릭했을 때 실행 할 함수
+const clickFunction = () => {
     // 이미 그려진 자리면 아무 것도 하지 않기
     if (e.classList.contains('O') || e.classList.contains('X')) {
         return
     }
 
     // O 또는 X item에 css로 그리기
-    if (isOTurn) {
+    if (isOturn) {
         e.classList.add('O')
     } else {
         e.classList.add('X')
@@ -84,10 +93,10 @@ items.forEach(e => e.addEventListener('click', () => {
             alert(winner + '의 승리입니다.')
             if (winner === 'X') {
                 Xscore++
-                scoreX.innerHTML = Xscore
+                updateScore()
             } else {
                 Oscore++
-                scoreO.innerHTML = Oscore
+                updateScore()
             }
 
             initGame()
@@ -96,27 +105,19 @@ items.forEach(e => e.addEventListener('click', () => {
     }
 
     // 순서 바꾸기
-    isOTurn = !isOTurn
+    isOturn = !isOturn
 
     // 순서 화면에 그리기
     let turn = document.getElementById('turn')
-    turn.innerHTML = isOTurn ? 'O' : 'X'
+    turn.innerHTML = isOturn ? 'O' : 'X'
+}
 
-}))
 
-// new game, reset game 구현
-let newGame = document.getElementById('newGame')
-let resetGame = document.getElementById('resetGame')
+const items = document.querySelectorAll('.item')
 
-newGame.addEventListener("click", () => {
-    console.log('new game')
-    initGame()
-})
+let scoreX = document.getElementById('scoreX')
+let scoreO = document.getElementById('scoreO')
+updateScore()
+initButtons()
 
-resetGame.addEventListener("click", () => {
-    console.log('reset game')
-    Xscore = 0
-    Oscore = 0
-    updateScore()
-    initGame()
-})
+items.forEach(e => e.addEventListener('click', clickFunction()))
