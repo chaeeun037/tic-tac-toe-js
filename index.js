@@ -37,7 +37,7 @@ const initButtons = () => {
     newGame.addEventListener("click", () => {
         let isRestart = confirm('게임을 새로 시작하시겠습니까?')
         if (isRestart) {
-            initGame(false)
+            initGame(isOturn)
         }
     })
 
