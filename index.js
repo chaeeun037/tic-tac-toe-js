@@ -19,14 +19,13 @@ const initGame = (isOturn) => {
 }
 
 // html에 점수 업데이트
-const updateScore = () => {
+const updateScore = (Oscore, Xscore) => {
     scoreO.innerHTML = Oscore
     scoreX.innerHTML = Xscore
 }
 
 // html에 차례 업데이트
 const updateTurn = (isOturn) => {
-    console.log(isOturn)
     turn.innerHTML = isOturn ? 'O' : 'X'
 }
 
@@ -38,7 +37,7 @@ const initButtons = () => {
     newGame.addEventListener("click", () => {
         let isRestart = confirm('게임을 새로 시작하시겠습니까?')
         if (isRestart) {
-            initGame()
+            initGame(false)
         }
     })
 
@@ -47,8 +46,8 @@ const initButtons = () => {
         if (isReset) {
             Xscore = 0
             Oscore = 0
-            updateScore()
-            initGame()
+            updateScore(Xscore, Oscore)
+            initGame(false)
         }
     })
 }
@@ -72,7 +71,7 @@ const clickFunction = (e) => {
     if (cnt >= 9) { // 무승부
         setTimeout(() => {
             alert('무승부입니다.')
-            initGame()
+            initGame(isOturn)
         }, 0)
         return
     }
@@ -103,11 +102,9 @@ const clickFunction = (e) => {
         setTimeout(() => {
             alert(winner + '의 승리입니다.')
             if (winner === 'X') {
-                Xscore++
-                updateScore()
+                updateScore(Oscore, ++Xscore)
             } else {
-                Oscore++
-                updateScore()
+                updateScore(++Oscore, Xscore)
             }
 
             // 진 사람이 먼저 시작하기
@@ -127,7 +124,7 @@ const items = document.querySelectorAll('.item')
 
 let scoreX = document.getElementById('scoreX')
 let scoreO = document.getElementById('scoreO')
-updateScore()
+updateScore(Oscore, Xscore)
 
 let turn = document.getElementById('turn')
 updateTurn(isOturn)
