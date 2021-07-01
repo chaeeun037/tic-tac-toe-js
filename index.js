@@ -29,21 +29,25 @@ const initButtons = () => {
     let resetGame = document.getElementById('resetGame')
 
     newGame.addEventListener("click", () => {
-        console.log('new game')
-        initGame()
+        let isRestart = confirm('게임을 새로 시작하시겠습니까?')
+        if (isRestart) {
+            initGame()
+        }
     })
 
     resetGame.addEventListener("click", () => {
-        console.log('reset game')
-        Xscore = 0
-        Oscore = 0
-        updateScore()
-        initGame()
+        let isReset = confirm('점수를 초기화 하시겠습니까?')
+        if (isReset) {
+            Xscore = 0
+            Oscore = 0
+            updateScore()
+            initGame()
+        }
     })
 }
 
 // cell item 클릭했을 때 실행 할 함수
-const clickFunction = () => {
+const clickFunction = (e) => {
     // 이미 그려진 자리면 아무 것도 하지 않기
     if (e.classList.contains('O') || e.classList.contains('X')) {
         return
@@ -120,4 +124,4 @@ let scoreO = document.getElementById('scoreO')
 updateScore()
 initButtons()
 
-items.forEach(e => e.addEventListener('click', clickFunction()))
+items.forEach(e => e.addEventListener('click', () => clickFunction(e)))
