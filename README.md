@@ -82,8 +82,20 @@
 
 
 
+
+
 ## 개선사항
 
 * setTimeout 해도 css mark 되기 전에 게임이 init되는 버그가 있다.
 * 현재는 새로고침하면 점수가 reset되므로 localestorage에 저장하게 변경해보기
+
+
+
+
+
+## 코드 리뷰
+
+* [모듈화를 위해 전체 로직 함수로 묶기](https://github.com/chaeeun037/tic-tac-toe-js/commit/3cce68c828e55b1875c93651ba0b873b26eff1bf)
+
+* [함수 내에서 전역변수 사용하지 않고 인자로 받아서 처리하기](https://github.com/chaeeun037/tic-tac-toe-js/commit/62fbc00a303e92275c8f59b4acec5d86e532c122)
 

@@ -119,9 +119,6 @@ const clickFunction = (e) => {
     updateTurn(isOturn)
 }
 
-
-const items = document.querySelectorAll('.item')
-
 let scoreX = document.getElementById('scoreX')
 let scoreO = document.getElementById('scoreO')
 updateScore(Oscore, Xscore)
@@ -129,7 +126,7 @@ updateScore(Oscore, Xscore)
 let turn = document.getElementById('turn')
 updateTurn(isOturn)
 
-initButtons()
-
-
+const items = document.querySelectorAll('.item')
 items.forEach(e => e.addEventListener('click', () => clickFunction(e)))
+
+initButtons()
