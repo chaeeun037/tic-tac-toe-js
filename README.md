@@ -2,6 +2,8 @@
 > A tic-tac-toe game developed with JavaScript
 
 
+![](https://github.com/chaeeun037/tic-tac-toe-js/blob/1f4be520b01170dc814f58119dbd146f02ffde53/%EC%BA%A1%EC%B3%90.JPG)
+
 
 ## 개발 목표
 
@@ -76,8 +78,9 @@
 
   
 
-* CSS가 그려지기 전에 로직이 끝나버리는 버그가 있었다.
+* CSS가 그려지기 전에 게임 결과가 먼저 뜨는 버그가 있었다.
 
+  * 원인은 js 로직이 끝나고 css가 그려지기 때문이.
   * setTimeout()을 통해서 css가 그려지고 난 후에 로직을 수행하도록 처리했다.
 
 
@@ -86,8 +89,8 @@
 
 ## 개선사항
 
-* setTimeout 해도 css mark 되기 전에 게임이 init되는 버그가 있다.
-* 현재는 새로고침하면 점수가 reset되므로 localestorage에 저장하게 변경해보기
+* 간헐적으로 setTimeout 해도 css mark 되기 전에 게임이 init되는 버그가 있다.
+* 현재는 새로고침하면 점수가 reset되므로 추후에 localestorage에 저장하게 변경해보기
 
 
 
