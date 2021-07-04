@@ -31,13 +31,11 @@
 
 ## 학습 내용
 
-[학습한 내용 보기](https://github.com/chaeeun037/chaeeun037.github.io/tree/master/_posts) // TODO: 아래 리스트에 파일 링크해보기
-
-* 배열의 forEach, map, filter, reduce 메서드를 사용한다.
-* 객체 리터럴로 객체를 구성한다.
-* ES Classes로 클래스를 만든다.
-* 비동기에 대해 이해한다.
-* DOM, Event의 기본 API를 이해한다.
+* [배열의 forEach, map, filter, reduce 메서드를 사용한다.](https://github.com/chaeeun037/chaeeun037.github.io/blob/master/_posts/array-method.md)
+* [객체 리터럴로 객체를 구성한다.](https://github.com/chaeeun037/chaeeun037.github.io/blob/master/_posts/object-literal.md)
+* [ES Classes로 클래스를 만든다.](https://github.com/chaeeun037/chaeeun037.github.io/blob/master/_posts/es-classes.md)
+* [비동기에 대해 이해한다.](https://github.com/chaeeun037/chaeeun037.github.io/blob/master/_posts/asynchronous.md)
+* [DOM](https://github.com/chaeeun037/chaeeun037.github.io/blob/master/_posts/dom-api.md), [Event](https://github.com/chaeeun037/chaeeun037.github.io/blob/master/_posts/event-api.md)의 기본 API를 이해한다.
 
 
 
